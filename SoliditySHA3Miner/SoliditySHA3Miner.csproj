@@ -1,16 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>2.2.2</Version>
-    <Authors>lwYeo</Authors>
-    <Company>lwYeo@github</Company>
-    <PackageLicenseUrl>https://github.com/lwYeo/SoliditySHA3Miner/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/lwYeo/SoliditySHA3Miner</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/lwYeo/SoliditySHA3Miner</RepositoryUrl>
+    <TargetFramework>net5.0</TargetFramework>
+    <Version>2.2.3</Version>
+    <Authors>crnxhh</Authors>
+    <Company>Mineions@github</Company>
+    <PackageLicenseUrl>https://github.com/Mineions/BNBTCminer/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl></RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
-    <Copyright>Copyright © lwYeo 2018</Copyright>
+    <Copyright></Copyright>
     <StartupObject>SoliditySHA3Miner.Program</StartupObject>
   </PropertyGroup>
 
@@ -19,10 +19,15 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <DefineConstants />
+    <OutputPath></OutputPath>
   </PropertyGroup>
 
   <PropertyGroup>
     <DebugType Condition="'$(Configuration)'=='Release'">None</DebugType>
+    <Product>SoliditySHA3Miner</Product>
+    <PackageId>SoliditySHA3Miner</PackageId>
+    <RootNamespace>SoliditySHA3Miner</RootNamespace>
+    <AssemblyName>BNBTCminer</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -45,7 +50,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BouncyCastle" Version="1.8.4" />
+    <PackageReference Include="BouncyCastle" Version="1.8.9" />
     <PackageReference Include="Common.Logging.Core" Version="3.4.1" />
     <PackageReference Include="Nethereum.Portable" Version="2.5.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
@@ -133,7 +138,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(OS)' == 'Windows_NT' ">
-    <Exec Command="copy /Y &quot;$(ProjectDir)$(OutDir)ABI\*.*&quot; &quot;$(ProjectDir)$(OutDir)*.*&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)$(OutDir)Scripts\*.*&quot; &quot;$(ProjectDir)$(OutDir)*.*&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)$(OutDir)MiningGuide\*.*&quot; &quot;$(ProjectDir)$(OutDir)*.*&quot;&#xD;&#xA;&#xD;&#xA;RD /S /Q &quot;$(ProjectDir)$(OutDir)ABI&quot;&#xD;&#xA;RD /S /Q &quot;$(ProjectDir)$(OutDir)Scripts&quot;&#xD;&#xA;RD /S /Q &quot;$(ProjectDir)$(OutDir)MiningGuide&quot;&#xD;&#xA;&#xD;&#xA;if not exist &quot;$(SolutionDir)Build\$(ConfigurationName)\&quot; mkdir &quot;$(SolutionDir)build\$(ConfigurationName)\&quot;&#xD;&#xA;&#xD;&#xA;copy /Y &quot;$(ProjectDir)ABI\*.abi&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\*.abi&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)MiningGuide\*.txt&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\*.txt&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)*.txt&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\*.txt&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)Scripts\*.bat&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\*.bat&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)*.conf&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\*.conf&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)$(OutDir)$(TargetName).deps.json&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\$(TargetName).deps.json&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)$(OutDir)$(TargetName).runtimeconfig.json&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\$(TargetName).runtimeconfig.json&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)$(OutDir)*.dll&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\*.dll&quot;&#xD;&#xA;&#xD;&#xA;copy /Y &quot;$(SolutionDir)LICENSE&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\LICENSE&quot;" />
+    <Exec Command="echo $(OutDir)&#xD;&#xA;copy /Y &quot;$(ProjectDir)$(OutDir)ABI\*.*&quot; &quot;$(ProjectDir)$(OutDir)*.*&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)$(OutDir)Scripts\*.*&quot; &quot;$(ProjectDir)$(OutDir)*.*&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)$(OutDir)MiningGuide\*.*&quot; &quot;$(ProjectDir)$(OutDir)*.*&quot;&#xD;&#xA;&#xD;&#xA;RD /S /Q &quot;$(ProjectDir)$(OutDir)ABI&quot;&#xD;&#xA;RD /S /Q &quot;$(ProjectDir)$(OutDir)Scripts&quot;&#xD;&#xA;RD /S /Q &quot;$(ProjectDir)$(OutDir)MiningGuide&quot;&#xD;&#xA;&#xD;&#xA;if not exist &quot;$(SolutionDir)Build\$(ConfigurationName)\&quot; mkdir &quot;$(SolutionDir)build\$(ConfigurationName)\&quot;&#xD;&#xA;&#xD;&#xA;copy /Y &quot;$(ProjectDir)ABI\*.abi&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\*.abi&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)MiningGuide\*.txt&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\*.txt&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)*.txt&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\*.txt&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)Scripts\*.bat&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\*.bat&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)*.conf&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\*.conf&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)$(OutDir)$(TargetName).deps.json&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\$(TargetName).deps.json&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)$(OutDir)$(TargetName).runtimeconfig.json&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\$(TargetName).runtimeconfig.json&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)$(OutDir)*.dll&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\*.dll&quot;&#xD;&#xA;copy /Y &quot;$(ProjectDir)$(OutDir)*.exe&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\*.exe&quot;&#xD;&#xA;&#xD;&#xA;copy /Y &quot;$(SolutionDir)LICENSE&quot; &quot;$(SolutionDir)build\$(ConfigurationName)\LICENSE&quot;" />
   </Target>
 
 </Project>
