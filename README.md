@@ -158,6 +158,8 @@ Donations are encouraged to help support further development of this miner!
 
 Many thanks to the following developers and testers in the 0xBitcoin discord :
 
+lwYeo
+
 Azlehria
 
 mining-visualizer
