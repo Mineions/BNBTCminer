@@ -1,26 +1,26 @@
-# SoliditySHA3Miner
+# BNBTCminer
 All-in-one mixed multi-GPU (nVidia, AMD, Intel) & CPU miner solves proof of work to mine supported EIP918 tokens in a single instance (with API).
 
-Current latest public release version: [2.2.2](https://github.com/lwYeo/SoliditySHA3Miner/releases/latest)
+Current latest public release version: [2.2.3](https://github.com/Mineions/BNBTCminer/releases/latest)
 
-Runs on Windows x64, HiveOS, EthOS, and Ubuntu.
+Runs on Windows x64
 
-Built with .NET Core 2.2 SDK, VC++ 2017, gcc 4.8.5, nVidia CUDA SDK 10.0 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)
+Built with .NET 5.0, VC++ 19.28.29914, nVidia CUDA SDK 10.2 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)
 
-- .NET Core 2.1 can be downloaded from [https://www.microsoft.com/net/download]
+- .NET Core 5.0 can be downloaded from https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-5.0.5-windows-x64-installer
 
-- VC++ 2017 can be downloaded from [https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads]
+- VC++ 2019 can be downloaded from https://aka.ms/vs/16/release/vc_redist.x64.exe (https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)
 
 - CUDA 9.2 requires a minimum nVidia driver version of 396 [https://www.nvidia.com/drivers/beta]
 
 If you are looking for a GUI version, refer to this link [https://github.com/lwYeo/SoliditySHA3MinerUI/releases]
 
-### Releases can be found [here](https://github.com/lwYeo/SoliditySHA3Miner/releases).
+### Releases can be found [here](https://github.com/Mineions/BNBTCminer/releases).
 
 
 ## LICENSE
 
-SoliditySHA3Miner is licensed under the [Apache License, Version 2.0 (the "License")](http://www.apache.org/licenses/LICENSE-2.0);
+BNBTCminer is licensed under the [Apache License, Version 2.0 (the "License")](http://www.apache.org/licenses/LICENSE-2.0);
 
 Libraries are included in the Software under the following license terms:
     
@@ -37,14 +37,11 @@ Libraries are included in the Software under the following license terms:
 
 ### Donation addresses
 
-    ETH (or any ERC 20/918 tokens)  : 0x9172ff7884CEFED19327aDaCe9C470eF1796105c
-    
-    BTC                             : 3GS5J5hcG6Qcu9xHWGmJaV5ftWLmZuR255
-    
-    LTC                             : LbFkAto1qYt8RdTFHL871H4djendcHyCyB
+    ETH (or any ERC 20/918 tokens)  : 0xaABcC45bad9B09783A856752078C5Ea8f5088a7B
+
     
 
-Usage: SoliditySHA3Miner [OPTIONS]
+Usage: BNBTCminer [OPTIONS]
 
 Options:
 
@@ -88,7 +85,7 @@ Options:
 
     submitStale             Submit stale jobs, may create more rejected shares (default: false)
 
-    abiFile                 Token abi in a file (default: '0xBTC.abi' in the same folder as this miner)
+    abiFile                 Token abi in a file (default: 'BNBTC.abi' in the same folder as this miner)
 
     web3api                 User-defined web3 provider URL (default: Infura mainnet provider [dev account, for TESTING PURPOSE only])
 
@@ -110,9 +107,9 @@ Options:
 
     privateKey              (Solo only) Miner's private key
 
-    gasToMine               (Solo only) Gas price to mine in GWei (default: 3, decimals allowed; note: will override lower dynamic gas price)
+    gasToMine               (Solo only) Gas price to mine in GWei (default: 5, decimals allowed; note: will override lower dynamic gas price)
 
-    gasLimit                (Solo only) Gas limit to submit proof of work (default: 1704624)
+    gasLimit                (Solo only) Gas limit to submit proof of work (default: 600000))
 
     gasApiURL               (Solo only) Get dynamic gas price to mine from this JSON API URL (note: leave empty to disable)
 
@@ -122,30 +119,24 @@ Options:
 
     gasApiOffset            (Solo only) Offset to dynamic gas price value from 'gasApiURL' => 'gasApiPath' (after 'gasApiMultiplier', decimals allowed)
 
-    gasApiMax               (Solo only) Maximum gas price to mine in GWei from API (default: 7, decimals allowed)
+    gasApiMax               (Solo only) Maximum gas price to mine in GWei from API (default: 5, decimals allowed)
 
-    pool                    (Pool only) URL of pool mining server (default: http://mike.rs:8080)
+    pool                    (Pool only) URL of pool mining server (default: http://bnbtcpool.crnx.org:8080)
 
     secondaryPool           (Optional) URL of failover pool mining server
 
     logFile                 Enables logging of console output to '{appPath}\\Log\\{yyyy-MM-dd}.log' (default: false)
 
-    devFee                  Set developer fee in percentage (default: 2.0%, minimum: 1.5%)
+    devFee                  Set developer fee in percentage (default: 2.0%)
 
 
 ### NOTES
 
-For HiveOS, refer to [GuideForHiveOS.txt](https://github.com/lwYeo/SoliditySHA3Miner/blob/master/SoliditySHA3Miner/MiningGuide/GuideForHiveOS.txt) on how to get started.
-
-For EthOS, refer to [GuideForEthOS.txt](https://github.com/lwYeo/SoliditySHA3Miner/blob/master/SoliditySHA3Miner/MiningGuide/GuideForEthOS.txt) on how to get started.
-
-Do refer to [GuideForPoolMining.txt](https://github.com/lwYeo/SoliditySHA3Miner/blob/master/SoliditySHA3Miner/MiningGuide/GuideForPoolMining.txt) and [GuideForSoloMining.txt](https://github.com/lwYeo/SoliditySHA3Miner/blob/master/SoliditySHA3Miner/MiningGuide/GuideForSoloMining.txt) on how to get started.
+Do refer to [GuideForPoolMining.txt](https://github.com/lwYeo/SoliditySHA3Miner/blob/master/SoliditySHA3Miner/MiningGuide/GuideForPoolMining.txt) on how to get started.
 
 Configuration is based on CLI (similar to ccminer), except ".abi" files are required for new tokens (You can manually create one and copy from etherscan.com -> Contract -> Code -> Contract ABI).
 
 Note that there is a configuration file "SoliditySHA3Miner.conf" that saves previous CLI parameters/settings, delete it prior to changing CLI parameters.
-
-Sample CLI launch parameter can be found in the ".bat" and ".sh" file found together with this miner, please refer to it if you need help.
 
 You will have to supply your own Ethereum address (or Private key if you solo mine). It is your own responsibility to mine to the correct address/account.
 
@@ -153,7 +144,7 @@ It is recommended to use your own web3api (e.g. Infura / Geth / Parity) if you s
 
 There is a default of 2.0% dev fee (Once every 50th nonce: starting from 11th if Pool mine, or starting from 50th if Solo mine).
 
-You can set to the lowest 1.5% with "devFee=1.5" (the formula is "(nonce mod (100 / devFee)) = 0").
+(the formula is "(nonce mod (100 / devFee)) = 0").
 
 Dev fee in solo mining is by sending the current reward amount after the successful minted block, using the same gas fee as provided in 'gasToMine'.
 

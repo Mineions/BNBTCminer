@@ -11,7 +11,7 @@ goto end
 
 :dotNetFound
 :startMiner
-SoliditySHA3Miner.exe
+BNBTCminer.exe
 
 if %errorlevel% EQU 22 (
   goto startMiner

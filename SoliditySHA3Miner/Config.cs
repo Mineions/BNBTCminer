@@ -95,7 +95,7 @@ namespace SoliditySHA3Miner
             gasApiMax = Defaults.GasApiMax;
             allowCPU = false;
             cpuDevice = new Miner.Device.CPU();
-            allowIntel = true;
+            allowIntel = false;
             intelDevices = new Miner.Device.OpenCL[] { };
             allowAMD = true;
             amdDevices = new Miner.Device.OpenCL[] { };
@@ -106,12 +106,12 @@ namespace SoliditySHA3Miner
         private static void PrintHelp()
         {
             var help =
-                "Usage: SoliditySHA3Miner [OPTIONS]\n" +
+                "Usage: BNBTCminer [OPTIONS]\n" +
                 "Options:\n" +
                 "  help                    Display this help text and exit\n" +
                 "  allowCPU                Allow to use CPU, may slow down system (default: false)\n" +
                 "  cpuAffinity             Comma separated list of CPU affinity ID to use (default: all odd number logical processors)\n" +
-                "  allowIntel              Allow to use Intel GPU (OpenCL) (default: true)\n" +
+                "  allowIntel              Allow to use Intel GPU (OpenCL) (default: false)\n" +
                 "  allowAMD                Allow to use AMD GPU (OpenCL) (default: true)\n" +
                 "  allowCUDA               Allow to use Nvidia GPU (CUDA) (default: true)\n" +
                 "  intelIntensity          GPU (Intel OpenCL) intensity (default: 17, decimals allowed)\n" +
@@ -128,9 +128,9 @@ namespace SoliditySHA3Miner
                 "  maxScanRetry            Number of retries to scan for new work (default: " + Defaults.MaxScanRetry + ")\n" +
                 "  pauseOnFailedScans      Pauses mining when connection fails, including secondary and retries (default: true)\n" +
                 "  submitStale             Submit stale jobs, may create more rejected shares (default: " + Defaults.SubmitStale.ToString().ToLower() + ")\n" +
-                "  abiFile                 Token abi in a file (default: '0xBTC.abi' in the same folder as this miner)\n" +
-                "  web3api                 User-defined web3 provider URL (default: Infura mainnet provider [dev account, for TESTING PURPOSE only])\n" +
-                "  contract                Token contract address (default: 0xbtc contract address)\n" +
+                "  abiFile                 Token abi in a file (default: 'BNBTC.abi' in the same folder as this miner)\n" +
+                "  web3api                 User-defined web3 provider URL (default: https://bsc-dataseed.binance.org)\n" +
+                "  contract                Token contract address (default: BNBTC contract address)\n" +
                 "  hashrateUpdateInterval  Interval (miliseconds) for GPU hashrate logs (default: " + Defaults.HashrateUpdateInterval + ")\n" +
                 "  networkUpdateInterval   Interval (miliseconds) to scan for new work (default: " + Defaults.NetworkUpdateInterval + ")\n" +
                 "  masterMode              Enable Master mode that virtually acts as a \"pool\" for slave miners connecting to it (default: false [requires admin/sudo mode])\n" +
@@ -833,27 +833,27 @@ namespace SoliditySHA3Miner
 
         public static class Defaults
         {
-            public const string InfuraAPI_mainnet = "https://mainnet.infura.io/ANueYSYQTstCr2mFJjPE";
+            public const string InfuraAPI_mainnet = "https://bsc-dataseed.binance.org";
             public const string InfuraAPI_ropsten = "https://ropsten.infura.io/ANueYSYQTstCr2mFJjPE";
-            public const string Contract0xBTC_mainnet = "0xB6eD7644C69416d67B522e20bC294A9a9B405B31";
+            public const string Contract0xBTC_mainnet = "0xE7Cb24F449973D5B3520E5b93D88B405903c75Fb";
             public const string Contract0xBTC_ropsten = "0x9D2Cc383E677292ed87f63586086CfF62a009010";
-            public const string AbiFile0xBTC = "0xBTC.abi";
+            public const string AbiFile0xBTC = "BNBTC.abi";
 
-            public const string GasApiURL = "https://ethgasstation.info/json/ethgasAPI.json";
+            public const string GasApiURL = "";
             public const string GasApiPath = "$.safeLow";
             public const float GasApiMultiplier = 0.1f;
-            public const float GasApiOffset = 0.5f;
+            public const float GasApiOffset = 1.0f;
 
-            public const string PoolPrimary = "http://mike.rs:8080";
-            public const string PoolSecondary = "http://mike.rs:8080";
+            public const string PoolPrimary = "";
+            public const string PoolSecondary = "";
             public const string JsonAPIPath = "http://127.0.0.1:4078";
             public const string CcminerAPIPath = "127.0.0.1:4068";
             public const string MasterIpAddress = "http://{0}:4080";
 
             public const bool SubmitStale = false;
-            public const float GasToMine = 3.0f;
-            public const ulong GasLimit = 1704624ul;
-            public const float GasApiMax = 7.0f;
+            public const float GasToMine = 5.0f;
+            public const ulong GasLimit = 600000ul;
+            public const float GasApiMax = 5.0f;
             public const int MaxScanRetry = 3;
             public const int PauseOnFailedScan = 3;
             public const int NetworkUpdateInterval = 15000;

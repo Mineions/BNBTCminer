@@ -1,16 +1,16 @@
-﻿SoliditySHA3Miner
+﻿BNBTCminer, based on SoliditySHA3Miner
 All-in-one mixed multi-GPU (nVidia, AMD, Intel) & CPU miner solves proof of work to mine supported EIP918 tokens in a single instance (with API).
 
-Current latest public release version: 2.2.2
-Runs on Windows x64, HiveOS, EthOS, and Ubuntu.
+Current latest public release version: 2.2.3
+Runs on Windows x64.
 
-Built with .NET Core 2.2 SDK, VC++ 2017, gcc 4.8.5, nVidia CUDA SDK 10.0 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)
-.NET Core 2.1 can be downloaded from https://www.microsoft.com/net/download
-VC++ 2017 can be downloaded from https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads
+Built with .NET 5.0, VC++ 19.28.29914, gcc 4.8.5, nVidia CUDA SDK 10.2 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)
+.NET Core 5.0 can be downloaded from https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-5.0.5-windows-x64-installer
+VC++ 2019 can be downloaded from https://aka.ms/vs/16/release/vc_redist.x64.exe (https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)
 CUDA 9.2 requires a minimum nVidia driver version of 396 [https://www.nvidia.com/drivers/beta]
 
 LICENSE
-SoliditySHA3Miner is licensed under the Apache License, Version 2.0 (the "License");
+BNBTCminer is licensed under the Apache License, Version 2.0 (the "License");
 Libraries are included in the Software under the following license terms:
 - libkeccak-tiny https://github.com/coruus/keccak-tiny/
 - Nethereum https://github.com/Nethereum/Nethereum/blob/master/LICENSE.md
@@ -19,16 +19,15 @@ Libraries are included in the Software under the following license terms:
 - Bouncy Castle https://www.bouncycastle.org/licence.html
 
 Donation addresses
-ETH (or any ERC 20/918 tokens)	: 0x9172ff7884CEFED19327aDaCe9C470eF1796105c
-BTC                             : 3GS5J5hcG6Qcu9xHWGmJaV5ftWLmZuR255
-LTC                             : LbFkAto1qYt8RdTFHL871H4djendcHyCyB
+BNB / BNBTC (or any ERC 20/918 tokens)	: 0xaABcC45bad9B09783A856752078C5Ea8f5088a7B
 
-Usage: SoliditySHA3Miner [OPTIONS]
+
+Usage: BNBTCminer [OPTIONS]
 Options:
   help                    Display this help text and exit
   allowCPU                Allow to use CPU, may slow down system (default: false)
   cpuAffinity             Comma separated list of CPU affinity ID to use (default: all odd number logical processors)
-  allowIntel              Allow to use Intel GPU (OpenCL) (default: true)
+  allowIntel              Allow to use Intel GPU (OpenCL) (default: false)
   allowAMD                Allow to use AMD GPU (OpenCL) (default: true)
   allowCUDA               Allow to use Nvidia GPU (CUDA) (default: true)
   intelIntensity          GPU (Intel OpenCL) intensity (default: 17, decimals allowed)
@@ -57,36 +56,34 @@ Options:
   address                 (Pool only) Miner's ethereum address (default: developer's address)
   privateKey              (Solo only) Miner's private key
   gasToMine               (Solo only) Gas price to mine in GWei (default: 3, decimals allowed; note: will override lower dynamic gas price)
-  gasLimit                (Solo only) Gas limit to submit proof of work (default: 1704624)
+  gasLimit                (Solo only) Gas limit to submit proof of work (default: 600000)
   gasApiURL               (Solo only) Get dynamic gas price to mine from this JSON API URL (note: leave empty to disable)
   gasApiPath              (Solo only) JSON path expression to retrieve dynamic gas price value from 'gasApiURL'
   gasApiMultiplier        (Solo only) Multiplier to dynamic gas price value from 'gasApiURL' => 'gasApiPath' (note: use 0.1 for EthGasStation API)
   gasApiOffset            (Solo only) Offset to dynamic gas price value from 'gasApiURL' => 'gasApiPath' (after 'gasApiMultiplier', decimals allowed)
-  gasApiMax               (Solo only) Maximum gas price to mine in GWei from API (default: 7, decimals allowed)
-  pool                    (Pool only) URL of pool mining server (default: http://mike.rs:8080)
+  gasApiMax               (Solo only) Maximum gas price to mine in GWei from API (default: 5, decimals allowed)
+  pool                    (Pool only) URL of pool mining server (default: none)
   secondaryPool           (Optional) URL of failover pool mining server
   logFile                 Enables logging of console output to '{appPath}\\Log\\{yyyy-MM-dd}.log' (default: false)
-  devFee                  Set developer fee in percentage (default: 2.0%, minimum: 1.5%)
+  devFee                  Set developer fee in percentage (default: 2.0%, minimum: 2.0%)
 
 NOTES
-For HiveOS, refer to 'GuideForHiveOS.txt' on how to get started.
-For EthOS, refer to 'GuideForEthOS.txt' on how to get started.
-Do refer to 'GuideForPoolMining.txt' and 'GuideForSoloMining.txt' on how to get started.
+Do refer to 'GuideForSoloMining.txt' on how to get started.
 Configuration is based on CLI (similar to ccminer), except ".abi" files are required for new tokens (You can manually create one and copy from etherscan.com -> Contract -> Code -> Contract ABI).
-Note that there is a configuration file "SoliditySHA3Miner.conf" that saves previous CLI parameters/settings, delete it prior to changing CLI parameters.
-Sample CLI launch parameter can be found in the ".bat" and ".sh" file found together with this miner, please refer to it if you need help.
-You will have to supply your own Ethereum address (or Private key if you solo mine). It is your own responsibility to mine to the correct address/account.
+Note that there is a configuration file "BNBTCminer.conf" that saves previous CLI parameters/settings, delete it prior to changing CLI parameters.
+Sample CLI launch parameter can be found in the ".bat" file found together with this miner, please refer to it if you need help.
+You will have to supply your own BSC address (or Private key if you solo mine). It is your own responsibility to mine to the correct address/account.
 It is recommended to use your own web3api (e.g. Infura / Geth / Parity) if you solo mine, default value is for TESTING PURPOSE ONLY.
 There is a default of 2.0% dev fee (Once every 50th nonce: starting from 11th if Pool mine, or starting from 50th if Solo mine).
-You can set to the lowest 1.5% with "devFee=1.5" (the formula is "(nonce mod (100 / devFee)) = 0").
 Dev fee in solo mining is by sending the current reward amount after the successful minted block, using the same gas fee as provided in 'gasToMine'.
 In the case if the compute load for your GPU is not >= 99%, you can adjust the intensity via (amdIntensity/cudaIntensity/intelIntensity).
 
-Please feedback your results and suggestions so that I can improve the miner. You can either add an issue in the repository, or find me in discord (Amano7). Thanks for trying out this miner!
+Thanks for trying out this miner!
 
 CREDITS
 Donations are encouraged to help support further development of this miner!
 Many thanks to the following developers and testers in the 0xBitcoin discord :
+lwYeo
 Azlehria
 mining-visualizer
 LtTofu/Mag517
