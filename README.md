@@ -110,7 +110,7 @@ Options:
 
     gasToMine               (Solo only) Gas price to mine in GWei (default: 5, decimals allowed; note: will override lower dynamic gas price)
 
-    gasLimit                (Solo only) Gas limit to submit proof of work (default: 600000))
+    gasLimit                (Solo only) Gas limit to submit proof of work (default: 1704624))
 
     gasApiURL               (Solo only) Get dynamic gas price to mine from this JSON API URL (note: leave empty to disable)
 
