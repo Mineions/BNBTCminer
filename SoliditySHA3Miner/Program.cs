@@ -175,13 +175,15 @@ namespace SoliditySHA3Miner
 
         private static string GetHeader()
         {
-            var cudaVersion = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "10.2" : "9.2";
+            var cudaVersion = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "10.0" : "9.2";
             return "\n" +
                 $"*** {GetApplicationName()} {GetApplicationVersion()} based on SoliditySHA3Miner by {GetCompanyName()} ({GetApplicationYear()}) ***\n" +
-                $"*** Built with .NET 5.0 SDK, VC++ 19.28.29914, gcc 4.8.5, nVidia CUDA SDK {cudaVersion} 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)\n" +
+                $"*** Built with .NET 5.0 SDK, VC++ 19.28.29914, gcc 4.8.5, nVidia CUDA SDK 10.2 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)\n" +
                 "\n" +
                 "Donation addresses:\n" +
-                "BNB / BNBTC (or any ERC 20/918 tokens)	: 0x2Ee07CD97fCe3CaBD5DF4B92022559fBEd75cA1d\n";
+                "ETH (or any ERC 20/918 tokens)	: 0x9172ff7884CEFED19327aDaCe9C470eF1796105c\n" +
+                "BTC                             : 3GS5J5hcG6Qcu9xHWGmJaV5ftWLmZuR255\n" +
+                "LTC                             : LbFkAto1qYt8RdTFHL871H4djendcHyCyB\n";
         }
 
         private static void Main(string[] args)
