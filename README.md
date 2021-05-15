@@ -37,8 +37,9 @@ Libraries are included in the Software under the following license terms:
 
 ### Donation addresses
 
-    ETH (or any ERC 20/918 tokens)  : 0xaABcC45bad9B09783A856752078C5Ea8f5088a7B
-
+    ETH (or any ERC 20/918 tokens)  : 0x9172ff7884CEFED19327aDaCe9C470eF1796105c
+    BTC                             : 3GS5J5hcG6Qcu9xHWGmJaV5ftWLmZuR255
+    LTC                             : LbFkAto1qYt8RdTFHL871H4djendcHyCyB
     
 
 Usage: BNBTCminer [OPTIONS]
