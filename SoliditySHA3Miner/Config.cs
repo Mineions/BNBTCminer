@@ -95,7 +95,7 @@ namespace SoliditySHA3Miner
             gasApiMax = Defaults.GasApiMax;
             allowCPU = false;
             cpuDevice = new Miner.Device.CPU();
-            allowIntel = false;
+            allowIntel = true;
             intelDevices = new Miner.Device.OpenCL[] { };
             allowAMD = true;
             amdDevices = new Miner.Device.OpenCL[] { };
@@ -834,25 +834,25 @@ namespace SoliditySHA3Miner
         public static class Defaults
         {
             public const string InfuraAPI_mainnet = "https://bsc-dataseed.binance.org";
-            public const string InfuraAPI_ropsten = "https://ropsten.infura.io/ANueYSYQTstCr2mFJjPE";
+            public const string InfuraAPI_ropsten = "";
             public const string Contract0xBTC_mainnet = "0xE7Cb24F449973D5B3520E5b93D88B405903c75Fb";
-            public const string Contract0xBTC_ropsten = "0x9D2Cc383E677292ed87f63586086CfF62a009010";
+            public const string Contract0xBTC_ropsten = "";
             public const string AbiFile0xBTC = "BNBTC.abi";
 
             public const string GasApiURL = "";
             public const string GasApiPath = "$.safeLow";
             public const float GasApiMultiplier = 0.1f;
-            public const float GasApiOffset = 1.0f;
+            public const float GasApiOffset = 0.5f;
 
             public const string PoolPrimary = "http://bnbtcpool.crnx.org:8080";
-            public const string PoolSecondary = "";
+            public const string PoolSecondary = "http://bnbtcpool.crnx.org:8080";
             public const string JsonAPIPath = "http://127.0.0.1:4078";
             public const string CcminerAPIPath = "127.0.0.1:4068";
             public const string MasterIpAddress = "http://{0}:4080";
 
             public const bool SubmitStale = false;
             public const float GasToMine = 5.0f;
-            public const ulong GasLimit = 600000ul;
+            public const ulong GasLimit = 1704624ul;
             public const float GasApiMax = 5.0f;
             public const int MaxScanRetry = 3;
             public const int PauseOnFailedScan = 3;
