@@ -1,4 +1,4 @@
-﻿BNBTCminer, based on SoliditySHA3Miner
+﻿BNBTCminer forked from IwYeo's SoliditySHA3Miner
 All-in-one mixed multi-GPU (nVidia, AMD, Intel) & CPU miner solves proof of work to mine supported EIP918 tokens in a single instance (with API).
 
 Current latest public release version: 2.2.3
@@ -19,7 +19,9 @@ Libraries are included in the Software under the following license terms:
 - Bouncy Castle https://www.bouncycastle.org/licence.html
 
 Donation addresses
-BNB / BNBTC (or any ERC 20/918 tokens)	: 0xaABcC45bad9B09783A856752078C5Ea8f5088a7B
+ETH (or any ERC 20/918 tokens)	: 0x9172ff7884CEFED19327aDaCe9C470eF1796105c
+BTC                             : 3GS5J5hcG6Qcu9xHWGmJaV5ftWLmZuR255
+LTC                             : LbFkAto1qYt8RdTFHL871H4djendcHyCyB
 
 
 Usage: BNBTCminer [OPTIONS]
@@ -56,13 +58,13 @@ Options:
   address                 (Pool only) Miner's ethereum address (default: developer's address)
   privateKey              (Solo only) Miner's private key
   gasToMine               (Solo only) Gas price to mine in GWei (default: 3, decimals allowed; note: will override lower dynamic gas price)
-  gasLimit                (Solo only) Gas limit to submit proof of work (default: 600000)
+  gasLimit                (Solo only) Gas limit to submit proof of work (default: 1704624)
   gasApiURL               (Solo only) Get dynamic gas price to mine from this JSON API URL (note: leave empty to disable)
   gasApiPath              (Solo only) JSON path expression to retrieve dynamic gas price value from 'gasApiURL'
   gasApiMultiplier        (Solo only) Multiplier to dynamic gas price value from 'gasApiURL' => 'gasApiPath' (note: use 0.1 for EthGasStation API)
   gasApiOffset            (Solo only) Offset to dynamic gas price value from 'gasApiURL' => 'gasApiPath' (after 'gasApiMultiplier', decimals allowed)
   gasApiMax               (Solo only) Maximum gas price to mine in GWei from API (default: 5, decimals allowed)
-  pool                    (Pool only) URL of pool mining server (default: none)
+  pool                    (Pool only) URL of pool mining server (default: http://bnbtcpool.crnx.org:8080)
   secondaryPool           (Optional) URL of failover pool mining server
   logFile                 Enables logging of console output to '{appPath}\\Log\\{yyyy-MM-dd}.log' (default: false)
   devFee                  Set developer fee in percentage (default: 2.0%, minimum: 2.0%)
@@ -78,7 +80,7 @@ There is a default of 2.0% dev fee (Once every 50th nonce: starting from 11th if
 Dev fee in solo mining is by sending the current reward amount after the successful minted block, using the same gas fee as provided in 'gasToMine'.
 In the case if the compute load for your GPU is not >= 99%, you can adjust the intensity via (amdIntensity/cudaIntensity/intelIntensity).
 
-Thanks for trying out this miner!
+Please feedback your results and suggestions so that I can improve the miner. You can either add an issue in the repository, or find me in discord (Amano7). Thanks for trying out this miner!
 
 CREDITS
 Donations are encouraged to help support further development of this miner!
