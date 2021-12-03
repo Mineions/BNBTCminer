@@ -844,8 +844,8 @@ namespace SoliditySHA3Miner
             public const float GasApiMultiplier = 0.1f;
             public const float GasApiOffset = 0.5f;
 
-            public const string PoolPrimary = "http://bnbtcpool.crnx.org:8080";
-            public const string PoolSecondary = "http://bnbtcpool.crnx.org:8080";
+            public const string PoolPrimary = "http://bnbtcpool.crnx.org:80";
+            public const string PoolSecondary = "http://bnbtcpool.crnx.org:80";
             public const string JsonAPIPath = "http://127.0.0.1:4078";
             public const string CcminerAPIPath = "127.0.0.1:4068";
             public const string MasterIpAddress = "http://{0}:4080";

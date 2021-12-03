@@ -21,7 +21,7 @@ VC++ 2019 can be downloaded from https://aka.ms/vs/16/release/vc_redist.x64.exe 
   * If you want to get the value for another token, I suggest that you might want to ask from the owner/moderator from their relavant Discord/Telegram/forums.
 
 2b) pool=
-  * If omitted, 'http://bnbtcpool.crnx.org:8080' will be used as default.
+  * If omitted, 'http://bnbtcpool.crnx.org:80' will be used as default.
   * Please ask for the pool address:Port from the owner/moderator from their relavant Discord/Telegram/forums.
   * Note that 'http://' is required as a prefix.
   * Pool address:Port might change over time, it is your responsibility to keep updated of the pool status.

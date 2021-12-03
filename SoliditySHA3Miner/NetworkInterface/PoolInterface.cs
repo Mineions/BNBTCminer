@@ -351,8 +351,8 @@ namespace SoliditySHA3Miner.NetworkInterface
         {
             Program.Print(string.Format("[INFO] Checking latest parameters from {0} pool...", IsSecondaryPool ? "secondary" : "primary"));
 
-            var getPoolEthAddress = GetPoolParameter("getPoolEthAddress");
-            var getPoolChallengeNumber = GetPoolParameter("getChallengeNumber");
+            var getPoolEthAddress = GetPoolParameter("getPoolEthAddress", MinerAddress);
+            var getPoolChallengeNumber = GetPoolParameter("getChallengeNumber", MinerAddress);
             var getPoolMinimumShareDifficulty = GetPoolParameter("getMinimumShareDifficulty", MinerAddress);
             var getPoolMinimumShareTarget = GetPoolParameter("getMinimumShareTarget", MinerAddress);
 
