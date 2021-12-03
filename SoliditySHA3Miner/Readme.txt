@@ -1,7 +1,7 @@
 ﻿BNBTCminer forked from IwYeo's SoliditySHA3Miner
 All-in-one mixed multi-GPU (nVidia, AMD, Intel) & CPU miner solves proof of work to mine supported EIP918 tokens in a single instance (with API).
 
-Current latest public release version: 2.2.3
+Current latest public release version: 1.2.0
 Runs on Windows x64.
 
 Built with .NET 5.0, VC++ 19.28.29914, gcc 4.8.5, nVidia CUDA SDK 10.2 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)
